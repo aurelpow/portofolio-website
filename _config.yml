@@ -1,7 +1,7 @@
 title: "Aurélien Darracq"
 description: "Sports analytics & data science projects"
 # leave baseurl empty for user site; set to "/<repo-name>" if this is a project site
-baseurl: "/portfolio-website"
+baseurl: "/portofolio-website"
 url: "https://aurelpow.github.io"
 
 # we use our own layout, no theme needed
