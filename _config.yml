@@ -1,0 +1,14 @@
+title: "Aurélien Darracq"
+description: "Sports analytics & data science projects"
+# leave baseurl empty for user site; set to "/<repo-name>" if this is a project site
+baseurl: "/portfolio-website"
+url: "https://aurelpow.github.io"
+
+# we use our own layout, no theme needed
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
