@@ -1,0 +1,15 @@
+title: "Aurélien Darracq"
+description: "Sports analytics & data science projects"
+# leave baseurl empty for user site; set to "/<repo-name>" if this is a project site
+url: "http://127.0.0.1:4000"
+baseurl: ""
+
+# we use our own layout, no theme needed
+markdown: kramdown
+highlighter: rouge
+
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
