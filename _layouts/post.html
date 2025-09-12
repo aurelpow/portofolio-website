@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+{%- assign hero = page.hero | default: page.image | default: page.thumb -%}
+{%- assign has_hero = hero != nil and hero != '' -%}
+
+{% if has_hero %}
+  <section class="post-hero project-hero--banner" style="--hero: url('{{ hero | relative_url }}')"></section>
+{% endif %}
+
+<div class="post-page">
+  <header class="post-header card">
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    <div class="post-meta project-meta">
+      {% if page.date %}<span>{{ page.date | date: "%B %-d, %Y" }}</span>{% endif %}
+      {% if page.tags and page.tags.size > 0 %}
+        <span class="sep">·</span>
+        <span class="chip-row">
+          {% for t in page.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+    {% if page.summary %}
+      <p class="post-summary project-summary">{{ page.summary }}</p>
+    {% endif %}
+    {% include cta-buttons.html %}
+  </header>
+
+  <section class="post-content project-content">
+    {{ content }}
+  </section>
+</div>
+
+<!-- Mermaid support -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+(function () {
+  // Transform fenced ```mermaid blocks into <div class="mermaid">...</div>
+  document.querySelectorAll('pre > code.language-mermaid').forEach(code => {
+    const div = document.createElement('div');
+    div.className = 'mermaid';
+    div.textContent = code.textContent.trim();
+    code.parentElement.replaceWith(div);
+  });
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    securityLevel: 'strict',
+    themeVariables: {
+      fontFamily: 'ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif',
+      fontSize: '16px',
+      primaryColor: '#251f6d',
+      primaryTextColor: '#f6f7fb',
+      primaryBorderColor: '#8b7cf7',
+      lineColor: '#b7b9d6',
+      secondaryColor: '#2a1f7a',
+      tertiaryColor: '#3a2aa8',
+      nodeTextColor: '#f6f7fb',
+      clusterBkg: '#1e1b4b',
+      clusterBorder: '#8b7cf7'
+    },
+    flowchart: { curve: 'basis', htmlLabels: true }
+  });
+})();
+</script>

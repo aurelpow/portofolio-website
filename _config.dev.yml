@@ -8,6 +8,7 @@ baseurl: ""
 markdown: kramdown
 highlighter: rouge
 
+
 collections:
   projects:
     output: true
