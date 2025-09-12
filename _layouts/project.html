@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+{%- assign hero = page.hero | default: page.image | default: page.thumb -%}
+{%- assign has_hero = hero != nil and hero != '' -%}
+
+{%- comment -%}
+Banner image only — no text on top (prevents readability issues).
+{%- endcomment -%}
+{% if has_hero %}
+  <section class="project-hero project-hero--banner" style="--hero: url('{{ hero | relative_url }}')"></section>
+{% endif %}
+
+<div class="project-page">
+  <header class="project-header card">
+    <h1 class="project-title">{{ page.title }}</h1>
+
+    <div class="project-meta">
+      {% if page.date %}<span>{{ page.date | date: "%B %-d, %Y" }}</span>{% endif %}
+      {% if page.tags and page.tags.size > 0 %}
+        <span class="sep">·</span>
+        <span class="chip-row">
+          {% for t in page.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+ {%- comment -%} CTA + Release badge side-by-side {%- endcomment -%}
+    <div class="project-cta">
+  {% if page.repo %}
+    <a class="btn btn-primary" href="{{ page.repo }}" target="_blank" rel="noopener">View on GitHub ↗</a>
+
+    {%- assign repo_slug = page.repo
+        | replace: "https://github.com/", ""
+        | replace: "http://github.com/", ""
+        | replace: "github.com/", ""
+        | strip -%}
+
+    <a class="release-link"
+       href="https://github.com/{{ repo_slug }}/releases"
+       target="_blank" rel="noopener">
+       <img class="release-badge"
+            src="https://img.shields.io/github/v/release/{{ repo_slug }}?color=blue&logo=github"
+            alt="Latest release">
+    </a>
+  {% elsif page.external_url %}
+    <a class="btn btn-primary" href="{{ page.external_url }}" target="_blank" rel="noopener">Open Project ↗</a>
+  {% endif %}
+</div>
+
+    {% if page.summary %}
+      <p class="project-summary">{{ page.summary }}</p>
+    {% endif %}
+  </header>
+
+  <section class="project-content">
+    {{ content }}
+  </section>
+</div>

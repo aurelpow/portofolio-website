@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+{%- assign posts = paginator.posts | default: site.posts -%}
+
+<section class="blog-index">
+  <header class="blog-header card">
+    <h1 class="blog-title">{{ page.title }}</h1>
+    <p class="blog-meta">
+      {{ posts | size }} post{% if posts.size != 1 %}s{% endif %}{% if site.tags %} · tags enabled{% endif %}
+    </p>
+  </header>
+
+  <div class="blog-list">
+    {% for post in posts %}
+      <article class="post-card card">
+        <h2 class="post-card-title">
+          <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+
+        <p class="post-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          {%- assign words = post.content | number_of_words -%}
+          {%- assign minutes = words | divided_by:200 | at_least:1 -%}
+          · {{ minutes }} min read
+          {% if post.tags and post.tags.size > 0 %}
+            · <span class="chip-row">
+              {% for t in post.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+            </span>
+          {% endif %}
+        </p>
+
+        <p class="post-card-excerpt">
+          {{ post.excerpt | default: post.content | strip_html | truncate: 180 }}
+        </p>
+
+        <p class="post-card-actions">
+          <a class="post-readmore" href="{{ post.url | relative_url }}">Read more →</a>
+        </p>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if paginator %}
+    <nav class="pager">
+      {% if paginator.previous_page %}
+        <a class="pager-link" href="{{ paginator.previous_page_path | relative_url }}">← Newer</a>
+      {% endif %}
+      <span class="pager-current">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a class="pager-link" href="{{ paginator.next_page_path | relative_url }}">Older →</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+</section>

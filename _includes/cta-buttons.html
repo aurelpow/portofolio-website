@@ -1,0 +1,41 @@
+{%- assign links = include.links | default: page.links -%}
+{%- assign share = include.share | default: page.share -%}
+
+{% if links or share %}
+  <div class="project-cta">
+    {%- if links -%}
+      {%- for item in links -%}
+        {%- assign kind = item.kind | default: 'external' -%}
+        <a class="btn btn-{{ kind }}" href="{{ item.url }}" target="_blank" rel="noopener">
+          {%- case kind -%}
+            {%- when 'linkedin' -%}
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" style="margin-right:6px">
+                <path fill="currentColor" d="M19 0H5A5 5 0 0 0 0 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM7 20H4V9h3v11zM5.5 7.5A1.5 1.5 0 1 1 7 6a1.5 1.5 0 0 1-1.5 1.5zM20 20h-3v-5.5c0-1.3-.47-2.2-1.7-2.2-.9 0-1.4.58-1.63 1.17-.1.24-.12.57-.12.9V20h-3V9h3v1.5c.39-.6 1.1-1.5 2.6-1.5 1.91 0 3.47 1.24 3.47 3.92V20z"/>
+              </svg>
+            {%- when 'github' -%}
+              <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" style="margin-right:6px">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54...Z"/>
+              </svg>
+            {%- else -%}
+              <!-- no icon -->
+          {%- endcase -%}
+          {{ item.label }}
+        </a>
+      {%- endfor -%}
+    {%- endif -%}
+
+    {%- if share -%}
+      {%- for s in share -%}
+        {%- if s == 'linkedin' -%}
+          <a class="btn btn-ghost"
+             href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | uri_escape }}"
+             target="_blank" rel="noopener">Share on LinkedIn ↗</a>
+        {%- elsif s == 'x' or s == 'twitter' -%}
+          <a class="btn btn-ghost"
+             href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | uri_escape }}&text={{ page.title | uri_escape }}"
+             target="_blank" rel="noopener">Share on X ↗</a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+{% endif %}

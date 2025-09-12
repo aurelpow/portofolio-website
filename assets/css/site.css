@@ -1,0 +1,558 @@
+---
+---
+
+:root{
+  --bg-1:#1e1b4b;        /* lighter indigo */
+  --bg-2:#2a1f7a;        /* brand purple */
+  --text:#f6f7fb;
+  --muted:#c7c9df;
+  --accent:#a78bfa;      /* soft violet */
+}
+
+/* ==== Global / original palette ==== */
+img { border-radius: 20px; }
+
+/* keep an initial h2 size for smaller screens; will scale later */
+h2 { font-size: 18px; }
+
+body {
+  /* UPDATED: softer background + fallback color */
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  background-color: rgb(21, 6, 108);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+  padding: 0 16px; /* keep your original spacing */
+}
+
+/* ==== Links & social buttons ==== */
+a {
+  background-color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  margin: 10px;
+  color: slateblue;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease; /* NEW */
+}
+a:hover{ transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+
+.social-buttons img {
+  width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;
+}
+.social-buttons a { display: inline-flex; align-items: center; }
+.social-buttons a:hover { background-color: slategray; color: white; }
+
+/* ==== Nav (same across all pages) ==== */
+nav ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15); /* NEW subtle lift */
+}
+nav ul li { margin: 10px; }
+nav ul li a {
+  color: slateblue; text-decoration: none; font-size: 18px;
+  padding: 10px; border-radius: 5px; transition: background-color 0.3s;
+  background: transparent; /* reset default block bg */
+}
+nav ul li a:hover { background-color: slateblue; color: white; }
+
+/* ==== About page sections (from style1.css) ==== */
+.section-container {
+  display: flex; flex-direction: column; align-items: center; margin-top: 20px;
+}
+.section {
+  display: flex; align-items: center;
+  background-color: white; color: slateblue;
+  border-radius: 10px; padding: 20px; margin: 10px;
+  width: 80%; max-width: 800px;
+}
+.section img { margin-right: 20px; border-radius: 10px; }
+.section h2 { margin-bottom: 10px; font-size: 24px; }
+.section p { font-size: 16px; margin: 0; text-align: left; }
+
+/* ==== Blog cards (from style-blog.css) ==== */
+#blog-posts {
+  display: flex; flex-direction: column; align-items: center; margin-top: 20px;
+}
+.blog-post {
+  background-color: white; color: slateblue;
+  border-radius: 10px; padding: 20px; margin: 10px;
+  width: 80%; max-width: 800px; text-align: left;
+}
+.blog-post h2 { font-size: 24px; margin-bottom: 10px; }
+.blog-post p { font-size: 16px; margin-bottom: 10px; }
+
+/* Typography & spacing */
+main { 
+  /* UPDATED: a bit wider for desktop */
+  max-width: 1100px; 
+  margin: 32px auto; 
+}
+
+/* keep nav gap reset for safety */
+nav ul { list-style: none; padding: 0; display: flex; gap: 12px; }
+nav a { text-decoration: none; }
+
+/* Social buttons block */
+.social-buttons { display: flex; gap: 12px; margin: 16px 0; align-items: center; flex-wrap: wrap; }
+.social-buttons a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #ddd; border-radius: 10px; }
+.social-buttons img { width: 18px; height: 18px; object-fit: contain; }
+
+/* Titles - UPDATED: responsive scaling, slightly larger on desktop */
+h1 { 
+  margin-top: 12px; 
+  font-size: clamp(2rem, 4vw, 3.25rem); 
+}
+h2 { 
+  margin-top: 0; 
+  color: #d8dbff;            /* lighter against dark bg */
+  font-weight: 500; 
+  font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+}
+
+/* Slightly roomier hero area on big screens */
+@media (min-width: 1200px){
+  main { margin: 48px auto; }
+}
+
+/* ===== Home two-column hero ===== */
+.home-hero{
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 32px auto;
+}
+
+/* left card */
+.profile-card{
+  background: white;
+  color: slateblue;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  position: sticky; top: 16px;  /* nice on desktop */
+}
+.profile-card .avatar{
+  width: 150px; height: 150px; border-radius: 50%;
+  object-fit: cover; display: block;
+}
+.profile-card h1{ margin: 10px 0 0; font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
+.profile-card h2{ margin: 4px 0 12px; font-size: 1.1rem; color: #6b72c5; font-weight: 600; }
+.profile-card .hello{ margin: 0; color: #5a5fa8; }
+
+/* right column tweaks (use your existing .recent-posts styles, plus:) */
+.recent-posts{ max-width: unset; width: 100%; }
+.recent-posts ul, .recent-list{ list-style: none; margin: 0; padding: 0; } /* kill bullets */
+.recent-item + .recent-item{ border-top: 1px solid #eee; margin-top: 16px; padding-top: 16px; }
+
+/* title override so your global a{} block doesn't turn these into big white pills */
+.recent-title{
+  background: transparent !important; display: inline !important;
+  margin: 0 !important; padding: 0 !important; border-radius: 0 !important;
+  color: inherit; font-weight: 800; font-size: 22px; text-decoration: none;
+}
+.recent-title:hover{ text-decoration: underline; }
+
+/* footer links under the list */
+.recent-actions{ display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.recent-link{
+  display: inline-block;
+  background: rgba(106,90,205,0.08);
+  color: slateblue;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(106,90,205,0.25);
+}
+.recent-link:hover{ background: rgba(106,90,205,0.14); }
+
+/* socials at bottom centered */
+.home-social{ display: flex; justify-content: center; margin: 24px 0 8px; }
+
+/* responsive: stack on mobile */
+@media (max-width: 900px){
+  .home-hero{ grid-template-columns: 1fr; }
+  .profile-card{ text-align: center; position: static; }
+  .profile-card .avatar{ margin: 0 auto; }
+}
+
+/* ===== Softer panel for Recent Posts ===== */
+:root{
+  --panel-bg-1: rgba(255,255,255,.12);
+  --panel-bg-2: rgba(255,255,255,.08);
+  --panel-border: rgba(255,255,255,.18);
+}
+
+.recent-posts{
+  background: linear-gradient(180deg, var(--panel-bg-1), var(--panel-bg-2));
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 24px 28px;
+  color: var(--text);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Headline + meta */
+.recent-posts h2{
+  color: var(--text);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin: 0 0 8px;
+}
+.recent-meta{
+  font-size: 14px;
+  color: var(--muted);
+  display: flex; justify-content: center; align-items: center;
+}
+.recent-meta .sep{ margin: 0 6px; color: rgba(255,255,255,.35); }
+
+/* List + items */
+.recent-list{ list-style: none; margin: 10px 0 0; padding: 0; }
+.recent-item{ padding: 12px 0; }
+.recent-item + .recent-item{ border-top: 1px solid rgba(255,255,255,.12); }
+
+/* Title link — keep it text-only (override global a{}) */
+.recent-title{
+  background: transparent !important;
+  display: inline !important;
+  margin: 0 !important; padding: 0 !important; border-radius: 0 !important;
+  color: var(--text); font-weight: 800;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  text-decoration: none;
+}
+.recent-title:hover{ text-decoration: underline; }
+
+/* One-sentence blurb */
+.recent-excerpt{ color: var(--muted); margin: 8px 0 0; }
+
+/* Footer buttons – faint pills that fit the panel */
+.recent-actions{ display:flex; gap:12px; margin-top:16px; flex-wrap:wrap; justify-content:center; }
+.recent-link{
+  background: rgba(255,255,255,.10);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.20);
+  padding: 8px 12px; border-radius: 10px; text-decoration: none;
+}
+.recent-link:hover{ background: rgba(255,255,255,.16); }
+
+/* Optional: match the left profile card to the same soft look */
+.profile-card{
+  background: linear-gradient(180deg, var(--panel-bg-1), var(--panel-bg-2));
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.profile-card h2, .profile-card .hello{ color: var(--muted); }
+
+/* Light mode fallback (if the user prefers light theme) */
+@media (prefers-color-scheme: light){
+  .recent-posts{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    color: #1f2937;
+  }
+  .recent-meta, .recent-excerpt{ color:#4b5563; }
+  .recent-link{
+    background:#f3f4f6; color:#1f2937; border-color:#e5e7eb;
+  }
+  .profile-card{
+    background:#ffffff; color:#1f2937; border:1px solid #e5e7eb;
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  }
+}
+
+
+/* Projects markdown style */
+/* ===========================
+   Projects index
+=========================== */
+.project-list { list-style: none; padding: 0; margin: 0; }
+.project-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+.project-list a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-accent);
+}
+.project-list .muted { color: #666; }
+.project-list .tags { margin-top: 4px; display: flex; gap: 8px; flex-wrap: wrap; }
+.project-list .tag {
+  font-size: .85rem;
+  padding: 2px 8px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+}
+
+/* ===========================
+   Project detail page (clean)
+=========================== */
+
+/* ---- frame & tokens ---- */
+:root { --maxw: 1000px; --color-accent:#6366f1; --bg-soft:#0f172a; }
+.card {
+  background:#fff; border:1px solid #eee; border-radius:14px;
+  padding:20px; margin:18px auto; max-width:var(--maxw);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+
+/* ---- hero / banner ---- */
+.project-hero--banner{
+  height: 420px;
+  background: var(--hero);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 32px 32px;
+  position: relative; z-index: 1;
+}
+.project-hero--banner::after{ content:""; position:absolute; inset:0; background: rgba(255,255,255,.35); }
+
+/* ---- header card over hero ---- */
+.project-header.card{
+  position: relative; z-index: 2;
+  margin-top: -250px;                  /* overlap */
+  background: rgba(255,255,255,.65);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+.project-title{ font-size: clamp(2rem, 4.8vw, 2.6rem); color: #2a1f7a; font-weight: 800; }
+.project-meta{ color:#666; font-size:.95rem; display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap }
+.sep{ opacity:.5 }
+.chip-row{ display:flex; gap:8px; flex-wrap:wrap }
+.chip{ background:#eef; color:#344; border:1px solid #dde; padding:2px 8px; border-radius:999px; font-size:.8rem }
+
+/* ---- CTA: GitHub + release badge ---- */
+.project-cta{ margin-top: 10px; display: inline-flex; align-items: center; gap: 12px; }
+.btn{ display:inline-block; padding:9px 16px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem }
+.btn-primary{
+  background: linear-gradient(135deg,#6366f1,#4f46e5);
+  color:#fff; box-shadow: 0 6px 16px rgba(99,102,241,.35);
+  transition: transform .2s ease;
+}
+.btn-primary:hover{ transform: translateY(-2px); }
+.release-link{ display:inline-flex; align-items:center; }
+.release-badge{ height: 24px; display:inline-block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.18)); }
+
+/* ---- content area ---- */
+.project-page{ margin:0 0 36px; }
+.project-content{
+  max-width:var(--maxw);
+  margin:16px auto 28px;              /* tighter bottom */
+  padding:0 16px;
+  text-align:left;
+}
+.project-content > *:last-child{ margin-bottom: 0; }  /* remove tail gap */
+
+.project-content h2{
+  margin: 28px 0 14px;                /* tighter section spacing */
+  font-size: 1.6rem;
+  color: var(--color-accent);
+}
+
+/* header intro (inside card) bigger */
+.project-summary{
+  font-size: clamp(1.12rem, 1.5vw, 1.35rem);
+  line-height: 1.9;
+  max-width: 920px;
+  margin: 10px auto 0;
+  color: #ffffff;
+}
+
+/* links inside content: no white pills */
+.project-content a{
+  background: transparent !important;
+  padding: 0 !important; margin: 0 !important; border-radius: 0 !important;
+  display: inline !important; box-shadow: none !important;
+}
+
+/* typography & lists */
+.project-content p, .project-content li{ font-size:1.03rem; line-height:1.7; }
+.project-content ul{ list-style: disc inside; margin: 6px 0 0; padding-left:0; }
+.project-content ul li{
+  margin: 6px 0;                      /* tighter */
+  padding: 6px 0;                     /* remove bulky card feel */
+  box-shadow: none; border-radius: 0; /* simple bullet list */
+}
+
+/* workflow diagram smaller */
+.project-content img{
+  display:block;
+  max-width: 850px;                   /* smaller figure */
+  width:100%; height:auto;
+  margin: 10px auto 16px;             /* tighter vertical rhythm */
+  border-radius:12px; border:1px solid #e9e9ef;
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+}
+
+/* (optional) generic figure styles if you use <figure> */
+.figure{ margin:14px auto; max-width:var(--maxw); border-radius:16px; }
+.figure img{ display:block; width:100%; height:auto; border-radius:12px; border:1px solid #eee; background:#fff }
+.figcap{ text-align:center; color:#4b5563; font-size:.9rem; margin-top:6px; }
+
+/* project page link color */
+a{ color:#2b5fd9; text-decoration:none }
+a:hover{ text-decoration:underline }
+
+
+/* ===========================
+   Post detail page
+=========================== */
+/* Post detail page */
+.post-header.card{
+  background:#b6b4b4; border:1px solid #eee; border-radius:14px;
+  padding:20px; 
+  margin:18px auto 36px; 
+  margin-top: -10px;
+  max-width:var(--maxw);
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+.post-meta{ color:#370b7d; 
+      font-size:.95rem; 
+      display:flex; 
+      gap:10px; justify-content:center; align-items:center; flex-wrap:wrap }
+.post-title { font-size: clamp(2rem, 4.8vw, 2.6rem); color: #2a1f7a; font-weight: 800; }
+.post-summary { color: #6a696978; }
+.post-content img {
+  display: block;
+  max-width: 700px;
+  height: auto; 
+  margin: 16px auto;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+}
+
+/* POST/PROJECT content rhythm */
+.project-content,
+.post-content{
+  --rh1: 1.15rem;   /* paragraph/list gap */
+  --rh2: 1.6rem;    /* h2 top gap */
+  --rh3: 1.2rem;    /* h3 top gap */
+}
+
+.project-content p,
+.post-content p{ margin: .55rem 0; }                 /* tighter paragraphs */
+.project-content ul,
+.post-content ul{ margin: .45rem 0 .6rem 1.25rem; }  /* tighter lists + indent */
+.project-content li,
+.post-content li{ margin: .25rem 0; }
+
+.project-content h2,
+.post-content h2{
+  color:#d8dbff;
+  border-color: rgba(10,102,194,.25);
+  font-weight: bold;
+  margin: var(--rh2) 0 .6rem;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  padding-bottom: .35rem;
+}
+.project-content h3,
+.post-content h3{ margin: var(--rh3) 0 .4rem; }
+
+.project-content hr,
+.post-content hr{ margin: 1rem 0; }
+
+/* code blocks a bit slimmer */
+.project-content pre,
+.post-content pre{ margin: .7rem 0; padding: .8rem 1rem; }
+
+/* images closer to text */
+.project-content img,
+.post-content img{ margin: .8rem auto; }
+
+.project-cta{ display:inline-flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; margin-top:10px; }
+.btn{ display:inline-flex; align-items:center; padding:9px 16px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem; border:none; }
+.btn-linkedin{ background:#0A66C2; color:#fff; box-shadow:0 6px 16px rgba(10,102,194,.35); }
+.btn-linkedin:hover{ transform:translateY(-2px); }
+.btn-github{ background:#111827; color:#fff; }
+.btn-ghost{ background:rgba(255,255,255,.10); color:var(--text); border:1px solid rgba(255,255,255,.20); }
+.btn-ghost:hover{ background:rgba(255,255,255,.16); }
+.btn svg{ flex:0 0 auto; }
+
+/* Mermaid wrapper */
+.mermaid {
+  max-width: 900px;
+  margin: .8rem auto 1rem;
+  line-height: 1.25;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+.mermaid svg { height: auto; }
+
+/* Smaller nodes on mobile */
+@media (max-width: 600px) {
+  .mermaid .node rect,
+  .mermaid .cluster rect { rx: 10px; ry: 10px; }
+}
+
+/* ===========================
+   Blog index
+=========================== */
+.blog-index { margin: 0 0 36px; }
+.blog-header.card {
+  text-align: center;
+  background: rgba(255,255,255,.65);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.blog-title { font-size: clamp(2rem, 4.2vw, 2.6rem); color: #2a1f7a; margin: 6px 0 0; }
+.blog-meta { color:#666; margin: 6px 0 0; }
+
+.blog-list { max-width: var(--maxw); margin: 16px auto; padding: 0 16px; }
+.post-card.card { text-align: left; }
+.post-card-title { margin: 0 0 6px; }
+
+/* Make title links look like text, not pills */
+.post-title{
+  background: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important;
+  color: #a78bfa; text-decoration: none; font-weight: 800; font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+}
+* Meta row and chips */
+.post-card-meta{ color:#555; margin: 4px 0 10px; font-size: .95rem; }
+.chip-row{ display:inline-flex; gap:8px; flex-wrap:wrap; vertical-align: middle; }
+.chip{ background:#eef; color:#344; border:1px solid #dde; padding:2px 8px; border-radius:999px; font-size:.8rem }
+
+/* Excerpt and actions */
+.post-card-excerpt{ margin: 0 0 10px; color: #2c2c3a; }
+.post-readmore{
+  background: rgba(106,90,205,0.08);
+  color: slateblue;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(106,90,205,0.25);
+}
+.post-readmore:hover{ background: rgba(106,90,205,0.14); }
+
+/* Pager */
+.pager{
+  display:flex; gap:12px; justify-content:center; align-items:center;
+  margin: 10px auto 24px; padding: 8px 12px;
+}
+.pager-link{
+  background: rgba(255,255,255,.10);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.20);
+  padding: 8px 12px; border-radius: 10px; text-decoration: none;
+}
+.pager-link:hover{ background: rgba(255,255,255,.16); }
+.pager-current{ color: var(--muted); }
