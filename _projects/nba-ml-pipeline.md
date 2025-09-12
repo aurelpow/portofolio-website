@@ -24,7 +24,7 @@ The project combines **data engineering** 🏗️, **feature engineering** 🧩,
 
 ## 🛠️ Pipeline Architecture
 
-![NBA ML Pipeline Banner](/assets/img/project/nba-ml-workflow.png)
+![NBA ML WorkFlow]({{ '/assets/img/project/nba-ml-workflow.png' | relative_url }})
 
 ---
 ## 🔮 Next Steps
