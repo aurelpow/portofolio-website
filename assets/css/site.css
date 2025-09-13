@@ -1,6 +1,40 @@
----
----
+/* ===== iOS / Mobile Baseline & Fixes (added) ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; -webkit-text-size-adjust: 100%; }
+body { min-height: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-tap-highlight-color: transparent; }
 
+/* Respect notches / safe areas on iOS */
+@supports (padding: max(0px)) {
+  body { 
+    padding-left: max(16px, env(safe-area-inset-left)); 
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+}
+nav ul { padding-top: calc(env(safe-area-inset-top) / 2); }
+
+/* Prevent input zoom on iOS */
+input, select, textarea { font-size: 16px; }
+
+/* Minimum comfortable tap targets */
+a, button { min-width: 44px; min-height: 44px; }
+
+/* Smooth, contained scrolling for overflow areas (apply class where needed) */
+.scroll-area { overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+
+/* Use dynamic viewport units to avoid 100vh jumps on iOS */
+.fullscreen, .hero { min-height: 100dvh; min-height: 100svh; }
+
+/* Only run hover effects on devices that actually hover */
+@media (hover: hover) and (pointer: fine) {
+  a:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+}
+
+/* Make media fully responsive */
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+/* ================================================ */
+
+
+/* ======= Your original + previous improvements (kept/merged) ======= */
 :root{
   --bg-1:#1e1b4b;        /* lighter indigo */
   --bg-2:#2a1f7a;        /* brand purple */
@@ -14,18 +48,26 @@ img { border-radius: 20px; }
 
 /* keep an initial h2 size for smaller screens; will scale later */
 h2 { font-size: 18px; }
+/* === Global background gradient === */
 
+.wrapper {
+  background: transparent; /* prevent restarting gradient in each section */
+}
 body {
   /* UPDATED: softer background + fallback color */
-  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  background-color: rgb(21, 6, 108);
+  background-color: #1e1b4b;
+  /* #1e1b4b = indigo/dark violet, #312e81 = softer purple */
+  color: #e2e8f0;  /* keep text readable */
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
   text-align: center;
   margin: 0;
   line-height: 1.6;
-  padding: 0 16px; /* keep your original spacing */
+  padding: 0 16px; /* keep your original spacing (safe-area padding added above) */
 }
+
+/* === Single background (html + body) === */
+html, body { min-height: 100%; }
 
 /* ==== Links & social buttons ==== */
 a {
@@ -38,15 +80,16 @@ a {
   margin: 10px;
   color: slateblue;
   text-decoration: none;
-  transition: transform .15s ease, box-shadow .15s ease; /* NEW */
+  transition: transform .15s ease, box-shadow .15s ease; /* hover activation gated above */
 }
-a:hover{ transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
 
 .social-buttons img {
   width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;
 }
-.social-buttons a { display: inline-flex; align-items: center; }
-.social-buttons a:hover { background-color: slategray; color: white; }
+.social-buttons a { background: whitesmoke;
+                    display: inline-flex;
+                     align-items: center; }
+.social-buttons a:hover { background-color: rgb(153, 118, 234); color: white; }
 
 /* ==== Nav (same across all pages) ==== */
 nav ul {
@@ -410,11 +453,9 @@ h2 {
 a{ color:#2b5fd9; text-decoration:none }
 a:hover{ text-decoration:underline }
 
-
 /* ===========================
    Post detail page
 =========================== */
-/* Post detail page */
 .post-header.card{
   background:#b6b4b4; border:1px solid #eee; border-radius:14px;
   padding:20px; 
@@ -427,7 +468,14 @@ a:hover{ text-decoration:underline }
       font-size:.95rem; 
       display:flex; 
       gap:10px; justify-content:center; align-items:center; flex-wrap:wrap }
-.post-title { font-size: clamp(2rem, 4.8vw, 2.6rem); color: #2a1f7a; font-weight: 800; }
+/* Make title links look like text, not pills */
+.post-title{
+  background: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important;
+  color: #a78bfa; 
+  text-decoration: none; 
+  font-weight: 1000; 
+  font-size: clamp(3rem, 5vw, 2.8rem);
+}
 .post-summary { color: #6a696978; }
 .post-content img {
   display: block;
@@ -504,6 +552,45 @@ a:hover{ text-decoration:underline }
   .mermaid .node rect,
   .mermaid .cluster rect { rx: 10px; ry: 10px; }
 }
+/* ===========================
+   Projects index
+=========================== */
+.projects-index { margin: 0 0 36px; }
+.projects-header.card {
+  text-align: center;
+  background: rgba(255,255,255,.65);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.projects-title { font-size: clamp(2rem, 4.2vw, 2.6rem); color: #2a1f7a; margin: 6px 0 0; }
+.projects-meta { color:#666; margin: 6px 0 0; }
+
+.projects-project-title {
+  background: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important;
+  color: #a78bfa; 
+  text-decoration: none; 
+  font-weight: 1000; 
+  font-size: clamp(1.03rem, 3rem, 1.25rem);
+}
+.projects-list { max-width: var(--maxw); margin: 16px auto; padding: 0 16px; }
+.project-card.card { text-align: left; }
+.project-card-title { margin: 0 0 6px; }
+.project-card-excerpt{ margin: 0 0 10px; color: #370b7d; }
+.project-card.time { color: #2a1f7a; font-size: .95rem; margin-bottom: 10px; }
+.project-readmore{
+  background: rgba(106,90,205,0.08);
+  color: slateblue;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(106,90,205,0.25);
+}
+/* Date inside meta row */
+.project-card-meta time {
+  color: #2a1f7a;
+  font-weight: 600;
+  font-size: .97rem;
+}
+
 
 /* ===========================
    Blog index
@@ -521,12 +608,14 @@ a:hover{ text-decoration:underline }
 .post-card.card { text-align: left; }
 .post-card-title { margin: 0 0 6px; }
 
-/* Make title links look like text, not pills */
-.post-title{
+.blog-page-post-title {
   background: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important;
-  color: #a78bfa; text-decoration: none; font-weight: 800; font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: #a78bfa; 
+  text-decoration: none; 
+  font-weight: 1000; 
+  font-size: clamp(1.03rem, 3.25rem, 2.1rem);
 }
-* Meta row and chips */
+/* Meta row and chips */ 
 .post-card-meta{ color:#555; margin: 4px 0 10px; font-size: .95rem; }
 .chip-row{ display:inline-flex; gap:8px; flex-wrap:wrap; vertical-align: middle; }
 .chip{ background:#eef; color:#344; border:1px solid #dde; padding:2px 8px; border-radius:999px; font-size:.8rem }
@@ -556,3 +645,101 @@ a:hover{ text-decoration:underline }
 }
 .pager-link:hover{ background: rgba(255,255,255,.16); }
 .pager-current{ color: var(--muted); }
+
+/* ===== Respect reduced motion on iOS and elsewhere ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== HOTFIX: revert global <a> pill styles (causing big gaps) ===== */
+a{
+  /* text-link defaults */
+  background: transparent;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  font-size: inherit;
+  color: #2b5fd9;
+  text-decoration: underline;
+  box-shadow: none;
+  transform: none;
+  transition: color .15s ease;
+}
+a:hover{ text-decoration: underline; box-shadow: none; transform: none; }
+
+/* Keep buttons and nav looking like buttons */
+.btn,
+.post-readmore,
+.recent-link,
+nav ul li a{
+  text-decoration: none;
+}
+
+/* Defensive: heading/permalink anchors should never take space */
+a[id],
+a.anchor,
+a[aria-hidden="true"]{
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Reduce extra vertical whitespace from the global main rule on project pages */
+main { max-width: 1100px; margin: 0 auto; }
+
+/* Optional: if the header card sits too high/low on small screens, tweak the overlap */
+@media (max-width: 600px){
+  .project-header.card{ margin-top: -200px; }
+}
+
+/* === Mobile fixes === */
+
+/* About: stack image + text on small screens */
+@media (max-width: 700px){
+  .section {
+    flex-direction: column;           /* stack */
+    align-items: stretch;
+    text-align: left;                  /* keep copy readable */
+  }
+  .section img {
+    margin: 0 0 12px 0;               /* space below image */
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+  }
+  .section h2 { font-size: 20px; }
+  .section p { font-size: 15px; }
+}
+
+/* Hero banner: scale height with viewport (prevents giant banner on iPhone) */
+.project-hero--banner,
+.post-hero.project-hero--banner{
+  height: clamp(220px, 40vh, 420px);
+}
+
+/* Overlap header card: soften the pull-up on small devices */
+@media (max-width: 600px){
+  .project-header.card{ margin-top: -160px; }
+}
+
+/* Blog/Projects: ensure cards don’t stretch weirdly if an image/figure is wide */
+.card img, .post-content img, .project-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Safer nav wrapping on narrow screens */
+@media (max-width: 480px){
+  nav ul { flex-wrap: wrap; gap: 6px; }
+  nav ul li { margin: 6px 4px; }
+}
