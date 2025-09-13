@@ -44,7 +44,7 @@ title: Home
     </ul>
 
     <div class="recent-actions">
-      <a class="recent-link" href="{{ '/project/' | relative_url }}">All Projects</a>
+      <a class="recent-link" href="{{ '/projects/' | relative_url }}">All Projects</a>
       <a class="recent-link" href="{{ '/blog/' | relative_url }}">All Articles</a>
     </div>
   </section>
