@@ -4,7 +4,7 @@ title: "How I Built an End-to-End Data Pipeline on Google Cloud Free Tiers"
 date: 2025-10-15
 links:
   - label: "View on LinkedIn"
-    url: ""
+    url: "https://www.linkedin.com/posts/aur%C3%A9lien-darracq_how-i-built-an-end-to-end-data-pipeline-on-activity-7384838119826829312-kvkx?utm_source=share&utm_medium=member_desktop&rcm=ACoAACj8uyMBzeRBxlTvSvVLQzWamr35ArYrhHE"
     kind: linkedin 
 tags: [Google Cloud, Free Tiers, Workflow, Data Engineering]
 ---

@@ -468,13 +468,25 @@ a:hover{ text-decoration:underline }
       font-size:.95rem; 
       display:flex; 
       gap:10px; justify-content:center; align-items:center; flex-wrap:wrap }
+
 /* Make title links look like text, not pills */
+
 .post-title{
-  background: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important;
+  background: transparent !important; 
+  padding: 0 !important; 
+  margin: 0 !important; 
+  border-radius: 0 !important;
   color: #a78bfa; 
   text-decoration: none; 
   font-weight: 1000; 
-  font-size: clamp(3rem, 5vw, 2.8rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);  /* Updated: smaller min for mobile */
+}
+
+/* Mobile-only: smaller post title */
+@media (max-width: 600px){
+  .post-title{
+    font-size: 1.75rem;  /* Fixed smaller size on mobile */
+  }
 }
 .post-summary { color: #6a696978; }
 .post-content img {
