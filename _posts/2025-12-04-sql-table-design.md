@@ -4,7 +4,7 @@ title: "Best practices for Well-Designed SQL Tables"
 date: 2025-12-04
 links:
   - label: "View post on LinkedIn"
-    url: "TBD"
+    url: "https://www.linkedin.com/posts/aur%C3%A9lien-darracq_dataengineering-sql-queryoptmization-activity-7402352455813992449-VtLg?utm_source=share&utm_medium=member_desktop&rcm=ACoAACj8uyMBzeRBxlTvSvVLQzWamr35ArYrhHE"
     kind: linkedin 
 tags: [SQL, Best Practices, Design, Data Engineering]
 ---
