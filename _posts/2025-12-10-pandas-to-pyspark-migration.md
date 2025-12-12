@@ -37,10 +37,12 @@ Migration isn't binary, it's a spectrum from Pandas optimization → Hybrid → 
 ### 📊 Decision Framework
 
 | Data Size | Strategy | Key Configuration | Cost Impact |
-|-----------|----------|-------------------|-------------|
+|------------|----------|-------------------|-------------|
 | **< 10GB** | **Pandas Optimization** | `chunksize`, `dtype` optimization | FREE (local) |
 | **10-50GB** | **Hybrid (PySpark → Pandas)** | `spark.driver.memory` (for collection) | Minutes of cluster time |
 | **> 50GB** | **Pure PySpark** | `spark.sql.shuffle.partitions`, AQE | Worth the investment |
+
+
 ### 1. Data < 10GB: Optimize Pandas First (Cost: $0)
 
 Before rewriting code, profile your Pandas memory with `df.memory_usage(deep=True)` and try dtype optimization. This approach costs nothing and often solves the problem.
