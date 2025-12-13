@@ -26,6 +26,7 @@ Built with industry-standard tools for **big data processing**, **workflow autom
 ---
 
 ## 🏗️ How It Works
+![yelp-pipeline]({{ '/assets/img/project/yelp-pipeline.png' | relative_url }})
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌──────────────┐     ┌─────────────┐
