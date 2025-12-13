@@ -26,6 +26,9 @@ Built with industry-standard tools for **big data processing**, **workflow autom
 ---
 
 ## 🏗️ How It Works
+<div style="text-align: center;">
+   <img src="{{ '/assets/img/project/yelp-pipeline.png' | relative_url }}" alt="yelp-pipeline" style="max-width: 100%; width: 1300px;">
+</div>
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌──────────────┐     ┌─────────────┐
