@@ -1,14 +1,25 @@
-<!doctype html>
+<! doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{ page.title }} | {{ site.title }}</title>
-<link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
-{% assign css = site.static_files | where: "path", "/assets/css/site.css" | first %}
-{% assign v = css.modified_time | default: site.time %}
-<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ v | date: '%Y%m%d%H%M%S' }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+  {% assign css = site.static_files | where: "path", "/assets/css/site.css" | first %}
+  {% assign v = css.modified_time | default: site.time %}
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ v | date: '%Y%m%d%H%M%S' }}">
 
+  <!-- Google Analytics -->
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js? id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site. google_analytics }}');
+  </script>
+  {% endif %}
+  <!-- End Google Analytics -->
 
 </head>
 <body>
@@ -25,6 +36,6 @@
     {{ content }}
   </main>
 
-  <footer style="margin:32px 0;color:#ddd;">© {{ "now" | date: "%Y" }} Aurélien Darracq</footer>
+  <footer style="margin:32px 0;color:#ddd;">© {{ "now" | date:  "%Y" }} Aurélien Darracq</footer>
 </body>
 </html>
