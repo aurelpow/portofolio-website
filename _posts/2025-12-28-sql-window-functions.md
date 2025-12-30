@@ -4,7 +4,7 @@ title: "Building Efficient Data Pipelines with SQL Window Functions"
 date: 2025-12-28
 links:
   - label: "View on LinkedIn"
-    url: "to be added"
+    url: "https://www.linkedin.com/posts/aur%C3%A9lien-darracq_sql-dataengineering-dataanalytics-activity-7411669929659318272-Cuv0?utm_source=share&utm_medium=member_desktop&rcm=ACoAACj8uyMBzeRBxlTvSvVLQzWamr35ArYrhHE"
     kind: linkedin
 tags: [Data Engineering, SQL, Window Functions, Analytics]
 ---
