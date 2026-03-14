@@ -4,7 +4,7 @@ title: "PySpark vs Scala Spark: Performance Comparison and Syntax Guide for Data
 date: 2026-02-17
 links:
   - label: "View on LinkedIn"
-    url: ""
+    url: "https://www.linkedin.com/posts/aur%C3%A9lien-darracq_dataengineering-pyspark-scala-activity-7430151748553650176-sgwN?utm_source=share&utm_medium=member_desktop&rcm=ACoAACj8uyMBzeRBxlTvSvVLQzWamr35ArYrhHE"
     kind: linkedin
 tags: [Data Engineering, PySpark, Scala, Apache Spark, Performance]
 ---
