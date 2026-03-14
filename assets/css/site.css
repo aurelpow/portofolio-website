@@ -107,6 +107,7 @@ nav ul li a {
   background: transparent; /* reset default block bg */
 }
 nav ul li a:hover { background-color: slateblue; color: white; }
+nav ul li a.active { background-color: slateblue; color: white; font-weight: 600; }
 
 /* ==== About page sections (from style1.css) ==== */
 .section-container {
@@ -170,7 +171,7 @@ h2 {
 /* ===== Home two-column hero ===== */
 .home-hero{
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-columns: 360px minmax(0, 1fr);
   gap: 24px;
   align-items: start;
   max-width: 1100px;
@@ -993,3 +994,38 @@ main { max-width: 1100px; margin: 0 auto; }
 
 /* Errors */
 .highlight .err { color: #fecaca; background: rgba(239,68,68,.12); padding: 0 2px; border-radius: 3px; }
+
+/* ===========================
+   Footer
+=========================== */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 48px auto 24px;
+  padding: 20px 16px;
+  max-width: 1100px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: var(--muted);
+  font-size: .9rem;
+}
+.site-footer a {
+  color: var(--muted) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  transition: color .15s ease;
+}
+.site-footer a:hover { color: var(--text) !important; }
+.site-footer__sep { opacity: .35; }
+
+/* ===========================
+   Avatar — force circle, override global img border-radius
+=========================== */
+.profile-card .avatar {
+  border-radius: 50% !important;
+}
