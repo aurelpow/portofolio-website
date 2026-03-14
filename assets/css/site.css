@@ -252,6 +252,53 @@ h2 {
   display: inline-block;
 }
 
+/* skills section inside profile card */
+.profile-skills{
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 14px;
+}
+.skills-label{
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 10px 0 5px;
+}
+.skills-label:first-child{ margin-top: 0; }
+.skills-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.skill-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  padding: 3px 10px 3px 6px;
+  font-size: .78rem;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: background .15s ease, color .15s ease;
+}
+.skill-pill:hover{
+  background: rgba(167,139,250,.18);
+  border-color: rgba(167,139,250,.35);
+  color: var(--text);
+}
+.skill-pill img{
+  width: 14px; height: 14px;
+  object-fit: contain;
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
 /* responsive: stack on mobile */
 @media (max-width: 900px){
   .home-hero{ grid-template-columns: 1fr; }
