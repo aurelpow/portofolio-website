@@ -4,11 +4,7 @@ title: "Full Load vs Incremental Load: How to Choose the Right Data Ingestion St
 date: 2026-03-10
 links:
   - label: "View on LinkedIn"
-<<<<<<< HEAD
     url: "https://www.linkedin.com/posts/aur%C3%A9lien-darracq_dataengineering-datapipeline-sql-activity-7437761855655198720-gUNK?utm_source=share&utm_medium=member_desktop&rcm=ACoAACj8uyMBzeRBxlTvSvVLQzWamr35ArYrhHE"
-=======
-    url: ""
->>>>>>> d6b91d6a3b73838a143c39a86f9b40cb2e9f5eda
     kind: linkedin
 tags: [Data Engineering, PySpark, Scala, Apache Spark, Performance]
 ---
