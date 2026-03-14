@@ -11,12 +11,12 @@
 
   <!-- Google Analytics -->
   {% if site.google_analytics %}
-  <script async src="https://www.googletagmanager.com/gtag/js? id={{ site.google_analytics }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '{{ site. google_analytics }}');
+    gtag('config', '{{ site.google_analytics }}');
   </script>
   {% endif %}
   <!-- End Google Analytics -->
@@ -25,10 +25,10 @@
 <body>
   <nav>
     <ul>
-      <li><a href="{{ '/' | relative_url }}">Home</a></li>
-      <li><a href="{{ '/projects/' | relative_url }}">My Projects</a></li>
-      <li><a href="{{ '/about/' | relative_url }}">About Me</a></li>
-      <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
+      <li><a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects' %}class="active"{% endif %}>My Projects</a></li>
+      <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About Me</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog' or page.url contains '/20' %}class="active"{% endif %}>Blog</a></li>
     </ul>
   </nav>
 
@@ -36,6 +36,8 @@
     {{ content }}
   </main>
 
-  <footer style="margin:32px 0;color:#ddd;">© {{ "now" | date:  "%Y" }} Aurélien Darracq</footer>
+  <footer class="site-footer">
+    <span>© {{ "now" | date: "%Y" }} Aurélien Darracq</span>
+  </footer>
 </body>
 </html>
