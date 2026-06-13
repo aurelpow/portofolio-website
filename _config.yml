@@ -1,5 +1,5 @@
 title: "Aurélien Darracq"
-description: "Sports analytics & data science projects"
+description: "Real-time data engineering & MLOps — Spark, Scala, Python on GCP. Streaming pipelines, fraud detection, and production ML."
 # leave baseurl empty for user site; set to "/<repo-name>" if this is a project site
 baseurl: "/portofolio-website"
 url:  "https://aurelpow.github.io"
