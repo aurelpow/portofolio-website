@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Sports and balance illustration</title>
+  <desc id="desc">A running track curve with a basketball and a stopwatch representing sport and discipline outside of work.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a1f7a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="400" rx="36" fill="url(#bg)"/>
+
+  <path d="M48 320 C110 220, 230 205, 352 292" fill="none" stroke="#c7d2fe" stroke-width="26" stroke-linecap="round"/>
+  <path d="M48 320 C110 247, 230 232, 352 292" fill="none" stroke="#818cf8" stroke-width="10" stroke-linecap="round"/>
+
+  <circle cx="135" cy="154" r="54" fill="#f97316"/>
+  <path d="M82 154 H188" stroke="#312e81" stroke-width="6"/>
+  <path d="M135 100 C160 120, 160 188, 135 208" fill="none" stroke="#312e81" stroke-width="6"/>
+  <path d="M135 100 C110 120, 110 188, 135 208" fill="none" stroke="#312e81" stroke-width="6"/>
+
+  <circle cx="286" cy="142" r="42" fill="#eef2ff"/>
+  <circle cx="286" cy="142" r="30" fill="none" stroke="#a5b4fc" stroke-width="8"/>
+  <line x1="286" y1="142" x2="286" y2="120" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+  <line x1="286" y1="142" x2="303" y2="142" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+
+  <circle cx="92" cy="315" r="6" fill="#ffffff"/>
+  <circle cx="132" cy="292" r="6" fill="#ffffff"/>
+  <circle cx="173" cy="279" r="6" fill="#ffffff"/>
+  <circle cx="218" cy="274" r="6" fill="#ffffff"/>
+  <circle cx="262" cy="278" r="6" fill="#ffffff"/>
+</svg>

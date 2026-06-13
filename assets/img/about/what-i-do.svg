@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Data engineering workflow illustration</title>
+  <desc id="desc">A laptop with data nodes, pipeline arrows, and a cloud to represent building real-time data systems.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a1f7a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="400" rx="36" fill="url(#bg)"/>
+
+  <rect x="82" y="105" width="236" height="154" rx="14" fill="#eef2ff"/>
+  <rect x="98" y="122" width="204" height="108" rx="10" fill="#c7d2fe"/>
+  <rect x="160" y="268" width="80" height="12" rx="6" fill="#a5b4fc"/>
+  <rect x="142" y="281" width="116" height="14" rx="7" fill="#818cf8"/>
+
+  <circle cx="138" cy="176" r="14" fill="#f97316"/>
+  <circle cx="200" cy="155" r="14" fill="#f97316"/>
+  <circle cx="262" cy="186" r="14" fill="#f97316"/>
+  <line x1="138" y1="176" x2="200" y2="155" stroke="#312e81" stroke-width="6"/>
+  <line x1="200" y1="155" x2="262" y2="186" stroke="#312e81" stroke-width="6"/>
+
+  <path d="M88 330 C130 295, 165 295, 206 330" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M194 325 L207 330 L197 341" fill="#f59e0b"/>
+  <path d="M206 330 C247 365, 290 365, 332 330" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+
+  <ellipse cx="325" cy="88" rx="40" ry="23" fill="#93c5fd"/>
+  <ellipse cx="302" cy="92" rx="20" ry="16" fill="#93c5fd"/>
+</svg>
