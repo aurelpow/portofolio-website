@@ -120,7 +120,13 @@ nav ul li a.active { background-color: slateblue; color: white; font-weight: 600
   width: 80%; max-width: 800px;
 }
 .section img { margin-right: 20px; border-radius: 10px; }
-.section h2 { margin-bottom: 10px; font-size: 24px; }
+.section h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: slateblue;
+  font-weight: 700;
+  text-align: left;
+}
 .section p { font-size: 16px; margin: 0; text-align: left; }
 
 /* ==== Blog cards (from style-blog.css) ==== */
@@ -298,6 +304,12 @@ h2 {
   border-radius: 2px;
   display: inline-block;
   flex-shrink: 0;
+}
+.skills-secondary{
+  font-size: .7rem;
+  color: var(--muted);
+  opacity: .65;
+  margin: 4px 0 0;
 }
 
 /* responsive: stack on mobile */
