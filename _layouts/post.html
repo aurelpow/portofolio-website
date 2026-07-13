@@ -10,29 +10,77 @@ layout: default
 {% endif %}
 
 <div class="post-page">
-  <header class="post-header card">
-    <h1 class="post-title">{{ page.title }}</h1>
+  <aside class="post-toc" aria-label="On this page" hidden>
+    <p class="post-toc-title">On this page</p>
+    <nav class="post-toc-nav"></nav>
+  </aside>
 
-    <div class="post-meta project-meta">
-      {% if page.date %}<span>{{ page.date | date: "%B %-d, %Y" }}</span>{% endif %}
-      {% if page.tags and page.tags.size > 0 %}
-        <span class="sep">·</span>
-        <span class="chip-row">
-          {% for t in page.tags %}<span class="chip">{{ t }}</span>{% endfor %}
-        </span>
+  <div class="post-main">
+    <header class="post-header card">
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      <div class="post-meta project-meta">
+        {% if page.date %}<span>{{ page.date | date: "%B %-d, %Y" }}</span>{% endif %}
+        {% if page.tags and page.tags.size > 0 %}
+          <span class="sep">·</span>
+          <span class="chip-row">
+            {% for t in page.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+          </span>
+        {% endif %}
+      </div>
+
+      {% if page.summary %}
+        <p class="post-summary project-summary">{{ page.summary }}</p>
       {% endif %}
-    </div>
+      {% include cta-buttons.html %}
+    </header>
 
-    {% if page.summary %}
-      <p class="post-summary project-summary">{{ page.summary }}</p>
-    {% endif %}
-    {% include cta-buttons.html %}
-  </header>
-
-  <section class="post-content project-content">
-    {{ content }}
-  </section>
+    <section class="post-content project-content">
+      {{ content }}
+    </section>
+  </div>
 </div>
+
+<!-- Table of contents: built from the post's headings -->
+<script>
+(function () {
+  var toc = document.querySelector('.post-toc');
+  var nav = document.querySelector('.post-toc-nav');
+  var content = document.querySelector('.post-content');
+  if (!toc || !nav || !content) return;
+
+  var headings = content.querySelectorAll('h2[id], h3[id]');
+  if (headings.length < 2) return;
+
+  var links = [];
+  headings.forEach(function (h) {
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent.trim();
+    a.className = 'post-toc-link ' + (h.tagName === 'H3' ? 'is-sub' : 'is-top');
+    a.dataset.target = h.id;
+    nav.appendChild(a);
+    links.push(a);
+  });
+
+  toc.hidden = false;
+
+  // Highlight the section currently in view.
+  var byId = {};
+  links.forEach(function (a) { byId[a.dataset.target] = a; });
+  var current = null;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        if (current) current.classList.remove('active');
+        current = byId[entry.target.id];
+        if (current) current.classList.add('active');
+      }
+    });
+  }, { rootMargin: '0px 0px -75% 0px', threshold: 0 });
+  headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 
 <!-- Mermaid support -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>

@@ -107,7 +107,7 @@ nav ul li a {
   background: transparent; /* reset default block bg */
 }
 nav ul li a:hover { background-color: slateblue; color: white; }
-nav ul li a.active { background-color: slateblue; color: white; font-weight: 600; }
+nav ul li a.active { background-color: slateblue; color: white; }
 
 /* ==== About page sections (from style1.css) ==== */
 .section-container {
@@ -545,6 +545,81 @@ a:hover{ text-decoration:underline }
 /* ===========================
    Post detail page
 =========================== */
+
+/* Two-column shell: sticky table of contents on the left, article on the right */
+.post-page{
+  display:grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 16px;
+  align-items:start;
+}
+.post-main{ min-width:0; }
+
+.post-toc{
+  position: sticky;
+  top: 90px;
+  align-self:start;
+  max-height: calc(100vh - 110px);
+  overflow-y:auto;
+  padding: 4px 6px 4px 0;
+}
+.post-toc-title{
+  margin:0 0 12px;
+  font-size:.74rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:#a9a7d0;
+  font-weight:700;
+}
+.post-toc-nav{ display:flex; flex-direction:column; gap:1px; }
+.post-toc-link{
+  display:block;
+  border-left:2px solid rgba(139,124,247,.22);
+  text-decoration:none;
+  transition: color .15s, border-color .15s, background-color .15s;
+}
+/* Top-level (h2): primary, brighter, heavier */
+.post-toc-link.is-top{
+  padding:7px 14px;
+  font-size:.92rem;
+  line-height:1.3;
+  font-weight:600;
+  color:#d7d5f2;
+}
+/* Sub-level (h3): clearly secondary, indented, dimmer, lighter */
+.post-toc-link.is-sub{
+  padding:4px 12px 4px 26px;
+  font-size:.8rem;
+  line-height:1.25;
+  font-weight:400;
+  color:#9c9ac2;
+}
+.post-toc-link.is-sub::before{
+  content:"";
+  display:inline-block;
+  width:5px; height:5px;
+  margin-right:8px;
+  border-radius:50%;
+  background:currentColor;
+  opacity:.55;
+  vertical-align:middle;
+}
+.post-toc-link:hover{ color:#c4b5fd; background:rgba(139,124,247,.08); text-decoration:none; }
+.post-toc-link.active{
+  color:#b9a4ff;
+  border-left-color:#a78bfa;
+  background:rgba(139,124,247,.10);
+}
+
+/* Single column on smaller screens: no room for a sidebar */
+@media (max-width: 1000px){
+  .post-page{ grid-template-columns: 1fr; max-width: var(--maxw); gap:0; }
+  .post-toc{ display:none; }
+}
+
 .post-header.card{
   background:#b6b4b4; border:1px solid #eee; border-radius:14px;
   padding:20px; 
@@ -577,7 +652,7 @@ a:hover{ text-decoration:underline }
     font-size: 1.75rem;  /* Fixed smaller size on mobile */
   }
 }
-.post-summary { color: #6a696978; }
+.post-summary { color: #3d3b54; }
 .post-content img {
   display: block;
   max-width: 700px;
@@ -614,6 +689,9 @@ a:hover{ text-decoration:underline }
 }
 .project-content h3,
 .post-content h3{ margin: var(--rh3) 0 .4rem; }
+
+/* Room above headings when jumped to from the table of contents */
+.post-content h2, .post-content h3{ scroll-margin-top: 24px; }
 
 .project-content hr,
 .post-content hr{ margin: 1rem 0; }

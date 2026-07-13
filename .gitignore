@@ -10,3 +10,7 @@ vendor/
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# CLAUDE code
+# Ignore CLAUDE.md as it may contain sensitive information or notes that should not be tracked.
+CLAUDE.md
