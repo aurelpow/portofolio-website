@@ -622,10 +622,11 @@ a:hover{ text-decoration:underline }
 
 .post-header.card{
   background:#b6b4b4; border:1px solid #eee; border-radius:14px;
-  padding:20px; 
-  margin:18px auto 36px; 
+  padding:28px 32px;
+  margin:18px auto 36px;
   margin-top: -10px;
   max-width:var(--maxw);
+  text-align:center;
   box-shadow:0 4px 20px rgba(0,0,0,.06);
 }
 .post-meta{ color:#370b7d; 
@@ -636,14 +637,17 @@ a:hover{ text-decoration:underline }
 /* Make title links look like text, not pills */
 
 .post-title{
-  background: transparent !important; 
-  padding: 0 !important; 
-  margin: 0 !important; 
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
   border-radius: 0 !important;
-  color: #a78bfa; 
-  text-decoration: none; 
-  font-weight: 1000; 
-  font-size: clamp(2rem, 5vw, 2.8rem);  /* Updated: smaller min for mobile */
+  max-width: 22ch;                      /* keep long titles on 2-3 tidy lines */
+  color: #2f2270;                       /* deep indigo: strong contrast on the grey card */
+  text-decoration: none;
+  font-weight: 1000;
+  line-height: 1.12;
+  overflow-wrap: break-word;
+  font-size: clamp(1.9rem, 4.2vw, 2.6rem);
 }
 
 /* Mobile-only: smaller post title */
