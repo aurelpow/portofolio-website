@@ -5,13 +5,12 @@ date: 2026-07-11
 summary: "A small GitHub Actions workflow turns Claude into an on-demand PR reviewer. It reads your real diff, follows your instructions, and can't touch your code. On a real PR it flagged hardcoded pgAdmin credentials I was about to ship."
 links:
   - label: "View on LinkedIn"
-    url: ""
+    url: "https://www.linkedin.com/posts/aur%C3%A9lien-darracq_dataengineering-devops-mlengineer-share-7482517123026751488-g6C4/"
     kind: linkedin
 tags: [MLOps, GitHub Actions, Code Review, Automation, AI]
 ---
-# I Asked Claude to Review My Data Pipeline PR. It Caught a Hardcoded Password I'd Missed
-
 > **Level:** Intermediate | **Stack:** GitHub Actions, `anthropics/claude-code-action@v1`
+
 > **TL;DR:** A small workflow turns Claude into an on-demand PR reviewer. It reads your real diff, follows your instructions, and can't push commits. On a real PR it caught a security bug: hardcoded `admin`/`admin` pgAdmin credentials I would have shipped.
 
 ---
