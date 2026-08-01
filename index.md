@@ -41,7 +41,27 @@ title: Home
 
 <section class="skills-panel reveal">
   <h2>What I Work With</h2>
-  <div class="skills-grid">
+  <div class="skills-layout">
+
+    <div class="skills-venn">
+      <svg class="venn" viewBox="35 20 460 425" role="img" aria-label="Venn diagram: data engineering, machine learning, and cloud overlap in production ML">
+        <circle class="venn-fill venn-f1" cx="195" cy="175" r="140"/>
+        <circle class="venn-fill venn-f2" cx="325" cy="175" r="140"/>
+        <circle class="venn-fill venn-f3" cx="260" cy="287" r="140"/>
+        <circle class="venn-circle venn-c1" cx="195" cy="175" r="140" pathLength="1"/>
+        <circle class="venn-circle venn-c2" cx="325" cy="175" r="140" pathLength="1"/>
+        <circle class="venn-circle venn-c3" cx="260" cy="287" r="140" pathLength="1"/>
+        <text class="venn-label" x="112" y="118">Data<tspan x="112" dy="19">Engineering</tspan></text>
+        <text class="venn-label" x="408" y="118">Machine<tspan x="408" dy="19">Learning</tspan></text>
+        <text class="venn-label" x="260" y="388">Cloud &amp;<tspan x="260" dy="19">DevOps</tspan></text>
+        <text class="venn-sub" x="260" y="112">Feature Pipelines</text>
+        <text class="venn-sub" x="165" y="298">Streaming</text>
+        <text class="venn-sub" x="355" y="298">MLOps</text>
+        <text class="venn-center" x="260" y="207">Production<tspan x="260" dy="19">ML</tspan></text>
+      </svg>
+    </div>
+
+    <div class="skills-grid">
 
     <div class="skills-group">
       <p class="skills-label">Languages</p>
@@ -89,6 +109,8 @@ title: Home
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="">Jira</span>
       </div>
     </div>
+
+  </div>
 
   </div>
   <p class="skills-secondary">also: Pandas · NumPy · Power BI</p>
