@@ -421,6 +421,56 @@ nav ul li a.active{ color: var(--accent); border-bottom-color: var(--accent); }
 .skill-pill img{ width: 17px; height: 17px; object-fit: contain; border-radius: 2px; flex-shrink: 0; }
 .skills-secondary{ font-size: .82rem; color: var(--text-muted); opacity: .7; margin: 16px 0 0; }
 
+/* GitHub activity — live client-side fetch against the public API */
+.github-activity{
+  max-width: var(--maxw-page);
+  margin: 8px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.github-activity.is-loaded{ opacity: 1; }
+.github-activity.is-hidden{ display: none; }
+
+.github-activity > h2{
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  margin: 0 0 6px;
+}
+.gh-sub{ color: var(--text-muted); margin: 0 0 24px; }
+.gh-sub a{ color: var(--text-muted); }
+.gh-sub a:hover{ color: var(--accent); }
+
+.gh-layout{
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+  gap: 28px 48px;
+  align-items: start;
+}
+@media (max-width: 800px){
+  .gh-layout{ grid-template-columns: 1fr; }
+}
+
+.gh-stats{ display: flex; flex-direction: column; gap: 20px; }
+.gh-profile-link{ margin-top: 4px; align-self: flex-start; }
+
+.gh-feed{ list-style: none; margin: 0; padding: 0; }
+.gh-feed-item{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .92rem;
+}
+.gh-feed-item:last-child{ border-bottom: none; }
+.gh-feed-icon{ flex: 0 0 auto; }
+.gh-feed-text{ color: var(--text-muted); flex: 1; }
+.gh-feed-text a{ color: var(--text); font-weight: 600; text-decoration: none; }
+.gh-feed-text a:hover{ color: var(--accent); }
+.gh-feed-time{ flex: 0 0 auto; color: var(--text-muted); font-size: .78rem; white-space: nowrap; }
+.gh-feed-skeleton{ color: var(--text-muted); font-size: .9rem; padding: 12px 0; }
+
 /* Recent work — compact card grid, not a stretched list */
 .recent-work{
   max-width: var(--maxw-page);
