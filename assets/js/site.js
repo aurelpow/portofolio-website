@@ -300,8 +300,11 @@
           var up = pct >= 0;
           deltaEl.textContent = (up ? '▲ +' : '▼ ') + pct + '%';
           deltaEl.classList.add(up ? 'is-up' : 'is-down');
-          deltaEl.title = 'Compared with ' + prevTotal + ' over the same period in ' + prevYear +
-                          ' (Jan 1 to today)';
+          var prevCutoffLabel = new Date(prevCutoff + 'T00:00:00').toLocaleDateString(undefined, {
+            month: 'short', day: 'numeric', year: 'numeric'
+          });
+          deltaEl.title = 'Compared with ' + prevTotal + ' contributions on the same date last year (' +
+                          prevCutoffLabel + ')';
           deltaEl.hidden = false;
         }
       }
