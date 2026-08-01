@@ -32,6 +32,11 @@ title: Home
       <img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?size=338&ext=jpg" alt="Twitter Logo"> Twitter
     </a>
   </div>
+
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="mailto:darracq.aurelien@gmail.com">Contact Me</a>
+    <a class="btn btn-ghost" href="{{ '/resume/' | relative_url }}">See My Resume</a>
+  </div>
 </section>
 
 <section class="skills-panel reveal">
