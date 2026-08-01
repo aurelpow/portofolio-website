@@ -8,7 +8,7 @@ permalink: /about/
 
 <div class="section-container">
 
-<div class="section">
+<div class="section reveal">
   <img src="{{ '/assets/img/about/what-i-do.svg' | relative_url }}" width="200" alt="Data engineering illustration">
   <div>
     <h2>What I do</h2>
@@ -16,7 +16,7 @@ permalink: /about/
   </div>
 </div>
 
-<div class="section">
+<div class="section reveal">
   <img src="{{ '/assets/img/about/how-i-learn.svg' | relative_url }}" width="200" alt="Learning process illustration">
   <div>
     <h2>How I learn</h2>
@@ -24,7 +24,7 @@ permalink: /about/
   </div>
 </div>
 
-<div class="section">
+<div class="section reveal">
   <img src="{{ '/assets/img/about/outside-work.svg' | relative_url }}" width="200" alt="Sports and discipline illustration">
   <div>
     <h2>Outside of work</h2>

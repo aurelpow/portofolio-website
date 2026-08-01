@@ -13,7 +13,7 @@ layout: default
   <div class="projects-list">
     {% assign projects = site.projects | sort: "date" | reverse %}
     {% for p in projects %}
-      <article class="project-card card">
+      <article class="project-card card reveal">
         <h2 class="project-card-title">
           <a class="projects-project-title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
         </h2>
