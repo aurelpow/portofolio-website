@@ -117,6 +117,33 @@ title: Home
   <p class="skills-secondary">also: Pandas · NumPy · Power BI</p>
 </section>
 
+<section class="github-activity" data-username="aurelpow">
+  <h2>GitHub Activity</h2>
+  <p class="gh-sub">Live from <a href="https://github.com/aurelpow" target="_blank" rel="noopener">github.com/aurelpow</a></p>
+
+  <div class="gh-layout">
+    <div class="gh-stats">
+      <div class="stat">
+        <span class="stat-number" data-gh-stat="repos">0</span>
+        <span class="stat-label">Public Repos</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-gh-stat="commits">0</span>
+        <span class="stat-label">Commits</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-gh-stat="prs">0</span>
+        <span class="stat-label">Merged PRs</span>
+      </div>
+      <a class="recent-link gh-profile-link" href="https://github.com/aurelpow" target="_blank" rel="noopener">View GitHub Profile ↗</a>
+    </div>
+
+    <ul class="gh-feed">
+      <li class="gh-feed-skeleton">Loading recent activity…</li>
+    </ul>
+  </div>
+</section>
+
 <section class="recent-work reveal">
   <h2>Recent Work</h2>
 
