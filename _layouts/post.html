@@ -16,7 +16,7 @@ layout: default
   </aside>
 
   <div class="post-main">
-    <header class="post-header card">
+    <header class="post-header card{% if has_hero %} has-hero{% endif %}">
       <h1 class="post-title">{{ page.title }}</h1>
 
       <div class="post-meta project-meta">
@@ -101,15 +101,15 @@ layout: default
     themeVariables: {
       fontFamily: 'ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif',
       fontSize: '16px',
-      primaryColor: '#251f6d',
-      primaryTextColor: '#f6f7fb',
-      primaryBorderColor: '#8b7cf7',
-      lineColor: '#b7b9d6',
-      secondaryColor: '#2a1f7a',
-      tertiaryColor: '#3a2aa8',
-      nodeTextColor: '#f6f7fb',
-      clusterBkg: '#1e1b4b',
-      clusterBorder: '#8b7cf7'
+      primaryColor: '#121a2e',
+      primaryTextColor: '#E5E7EB',
+      primaryBorderColor: '#22D3EE',
+      lineColor: '#94A3B8',
+      secondaryColor: '#1a2338',
+      tertiaryColor: '#0B1120',
+      nodeTextColor: '#E5E7EB',
+      clusterBkg: '#0B1120',
+      clusterBorder: '#22D3EE'
     },
     flowchart: { curve: 'basis', htmlLabels: true }
   });

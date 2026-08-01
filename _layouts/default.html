@@ -27,13 +27,20 @@
 
 </head>
 <body>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <div id="preloader" aria-hidden="true"><span class="preloader-mark">AD</span></div>
+
   <nav>
-    <ul>
-      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
-      <li><a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects' %}class="active"{% endif %}>My Projects</a></li>
-      <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About Me</a></li>
-      <li><a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog' or page.url contains '/20' %}class="active"{% endif %}>Blog</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a class="nav-brand" href="{{ '/' | relative_url }}">Aurélien Darracq</a>
+      <ul>
+        <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects' %}class="active"{% endif %}>My Projects</a></li>
+        <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About Me</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog' or page.url contains '/20' %}class="active"{% endif %}>Blog</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
@@ -43,5 +50,9 @@
   <footer class="site-footer">
     <span>© {{ "now" | date: "%Y" }} Aurélien Darracq</span>
   </footer>
+
+  {% assign js = site.static_files | where: "path", "/assets/js/site.js" | first %}
+  {% assign jsv = js.modified_time | default: site.time %}
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}?v={{ jsv | date: '%Y%m%d%H%M%S' }}"></script>
 </body>
 </html>
