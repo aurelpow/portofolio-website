@@ -441,6 +441,64 @@ nav ul li a.active{ color: var(--accent); border-bottom-color: var(--accent); }
 .gh-sub a{ color: var(--text-muted); }
 .gh-sub a:hover{ color: var(--accent); }
 
+/* Contributions: YTD headline + year-over-year delta + heatmap */
+.gh-contrib{ margin: 0 0 32px; }
+.gh-contrib.is-hidden{ display: none; }
+
+.gh-contrib-head{
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 16px;
+}
+.gh-big-number{
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.gh-big-label{ color: var(--text-muted); font-size: 1rem; }
+.gh-delta{
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  cursor: help;
+}
+.gh-delta.is-up{ background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+.gh-delta.is-down{ background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.3); }
+
+.gh-heatmap-scroll{ overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+.gh-heatmap{
+  display: grid;
+  grid-template-rows: repeat(7, 11px);
+  grid-auto-flow: column;
+  grid-auto-columns: 11px;
+  gap: 3px;
+  min-width: max-content;
+}
+.gh-cell{
+  width: 11px; height: 11px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.05);
+}
+.gh-cell.is-empty{ background: transparent; }
+.gh-cell[data-level="1"]{ background: rgba(34,211,238,.28); }
+.gh-cell[data-level="2"]{ background: rgba(34,211,238,.5); }
+.gh-cell[data-level="3"]{ background: rgba(34,211,238,.75); }
+.gh-cell[data-level="4"]{ background: var(--accent); }
+
+.gh-legend{
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 10px;
+  font-size: .72rem;
+  color: var(--text-muted);
+}
+.gh-legend .gh-cell{ width: 10px; height: 10px; }
+
+.gh-panel.is-hidden{ display: none; }
 .gh-layout{
   display: grid;
   grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);

@@ -3,6 +3,23 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Shared count-up used by the hero stats and the GitHub panel. */
+  function countUpTo(el, target) {
+    if (!el) return;
+    target = target || 0;
+    if (reduceMotion) { el.textContent = target; return; }
+
+    var start = null;
+    var duration = 900;
+    function step(timestamp) {
+      if (start === null) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      el.textContent = Math.floor(progress * target);
+      if (progress < 1) requestAnimationFrame(step); else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
   /* ---- Typewriter hero role ---- */
   function initTypewriter() {
     var el = document.querySelector('.hero-role[data-roles]');
@@ -74,25 +91,7 @@
     if (!items.length) return;
 
     function countUp(el) {
-      var target = parseInt(el.getAttribute('data-target'), 10) || 0;
-      if (reduceMotion) {
-        el.textContent = target;
-        return;
-      }
-      var start = null;
-      var duration = 900;
-
-      function step(timestamp) {
-        if (start === null) start = timestamp;
-        var progress = Math.min((timestamp - start) / duration, 1);
-        el.textContent = Math.floor(progress * target);
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          el.textContent = target;
-        }
-      }
-      requestAnimationFrame(step);
+      countUpTo(el, parseInt(el.getAttribute('data-target'), 10) || 0);
     }
 
     if (!('IntersectionObserver' in window)) {
@@ -120,27 +119,13 @@
     var username = root.getAttribute('data-username');
     if (!username) return;
 
+    var panel = root.querySelector('.gh-panel');
     var feedEl = root.querySelector('.gh-feed');
     var statEls = {
       repos: root.querySelector('[data-gh-stat="repos"]'),
       commits: root.querySelector('[data-gh-stat="commits"]'),
       prs: root.querySelector('[data-gh-stat="prs"]')
     };
-
-    function animateStat(el, target) {
-      if (!el) return;
-      target = target || 0;
-      if (reduceMotion) { el.textContent = target; return; }
-      var start = null;
-      var duration = 900;
-      function step(timestamp) {
-        if (start === null) start = timestamp;
-        var progress = Math.min((timestamp - start) / duration, 1);
-        el.textContent = Math.floor(progress * target);
-        if (progress < 1) requestAnimationFrame(step); else el.textContent = target;
-      }
-      requestAnimationFrame(step);
-    }
 
     function timeAgo(dateStr) {
       var seconds = Math.floor((Date.now() - new Date(dateStr).getTime()) / 1000);
@@ -208,9 +193,9 @@
       var user = results[0], commits = results[1], prs = results[2], events = results[3];
       if (!user || !commits || !prs || !events) throw new Error('incomplete github data');
 
-      animateStat(statEls.repos, user.public_repos);
-      animateStat(statEls.commits, commits.total_count);
-      animateStat(statEls.prs, prs.total_count);
+      countUpTo(statEls.repos, user.public_repos);
+      countUpTo(statEls.commits, commits.total_count);
+      countUpTo(statEls.prs, prs.total_count);
 
       if (feedEl && Array.isArray(events)) {
         var rows = [];
@@ -235,8 +220,96 @@
       root.classList.add('is-loaded');
     }).catch(function () {
       /* GitHub's public API is unauthenticated here (60 req/hr, 10/min for search) —
-         if it's rate-limited or unreachable, hide the section instead of showing broken data. */
-      root.classList.add('is-hidden');
+         if it's rate-limited or unreachable, hide this block instead of showing broken data. */
+      if (panel) panel.classList.add('is-hidden');
+    });
+  }
+
+  /* ---- Contributions: year-to-date total, YoY delta, and heatmap ----
+     GitHub's REST API doesn't expose the contribution calendar (only the
+     authenticated GraphQL API does), so this reads a public mirror of the
+     same data. Fails independently of the panel above. */
+  function initGithubContributions() {
+    var root = document.querySelector('.github-activity');
+    if (!root) return;
+    var username = root.getAttribute('data-username');
+    if (!username) return;
+
+    var block = root.querySelector('.gh-contrib');
+    var totalEl = root.querySelector('[data-gh-contrib="total"]');
+    var yearEl = root.querySelector('[data-gh-contrib="year"]');
+    var deltaEl = root.querySelector('[data-gh-contrib="delta"]');
+    var heatmapEl = root.querySelector('.gh-heatmap');
+    if (!block || !totalEl) return;
+
+    var now = new Date();
+    var curYear = now.getFullYear();
+    var prevYear = curYear - 1;
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    var monthDay = '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+    var curCutoff = curYear + monthDay;
+    var prevCutoff = prevYear + monthDay;
+
+    var base = 'https://github-contributions-api.jogruber.de/v4/' + username;
+
+    function sumThrough(data, cutoff) {
+      return (data.contributions || []).reduce(function (acc, day) {
+        return day.date <= cutoff ? acc + day.count : acc;
+      }, 0);
+    }
+
+    function renderHeatmap(days) {
+      if (!heatmapEl || !days.length) return;
+
+      var todayStr = curCutoff;
+      var past = days.filter(function (d) { return d.date <= todayStr; });
+      var recent = past.slice(-364);
+      if (!recent.length) return;
+
+      // Pad so the first column starts on the correct weekday (Sunday-first, like GitHub).
+      var lead = new Date(recent[0].date + 'T00:00:00').getDay();
+      var html = '';
+      for (var i = 0; i < lead; i++) html += '<span class="gh-cell is-empty"></span>';
+
+      recent.forEach(function (d) {
+        var label = new Date(d.date + 'T00:00:00').toLocaleDateString(undefined, {
+          month: 'short', day: 'numeric', year: 'numeric'
+        });
+        html += '<span class="gh-cell" data-level="' + d.level + '" title="' +
+                d.count + (d.count === 1 ? ' contribution on ' : ' contributions on ') + label + '"></span>';
+      });
+
+      heatmapEl.innerHTML = html;
+    }
+
+    Promise.all([
+      fetch(base + '?y=' + curYear).then(function (r) { return r.ok ? r.json() : null; }),
+      fetch(base + '?y=' + prevYear).then(function (r) { return r.ok ? r.json() : null; })
+    ]).then(function (res) {
+      var cur = res[0], prev = res[1];
+      if (!cur || !cur.contributions) throw new Error('no contribution data');
+
+      var curTotal = sumThrough(cur, curCutoff);
+      countUpTo(totalEl, curTotal);
+      if (yearEl) yearEl.textContent = curYear;
+
+      if (deltaEl && prev && prev.contributions) {
+        var prevTotal = sumThrough(prev, prevCutoff);
+        if (prevTotal > 0) {
+          var pct = Math.round(((curTotal - prevTotal) / prevTotal) * 100);
+          var up = pct >= 0;
+          deltaEl.textContent = (up ? '▲ +' : '▼ ') + pct + '%';
+          deltaEl.classList.add(up ? 'is-up' : 'is-down');
+          deltaEl.title = 'Compared with ' + prevTotal + ' over the same period in ' + prevYear +
+                          ' (Jan 1 to today)';
+          deltaEl.hidden = false;
+        }
+      }
+
+      renderHeatmap((prev && prev.contributions ? prev.contributions : []).concat(cur.contributions));
+      root.classList.add('is-loaded');
+    }).catch(function () {
+      block.classList.add('is-hidden');
     });
   }
 
@@ -245,5 +318,6 @@
     initReveal();
     initCounters();
     initGithubActivity();
+    initGithubContributions();
   });
 })();

@@ -121,6 +121,27 @@ title: Home
   <h2>GitHub Activity</h2>
   <p class="gh-sub">Live from <a href="https://github.com/aurelpow" target="_blank" rel="noopener">github.com/aurelpow</a></p>
 
+  <div class="gh-contrib">
+    <div class="gh-contrib-head">
+      <span class="gh-big-number" data-gh-contrib="total">0</span>
+      <span class="gh-big-label">contributions in <span data-gh-contrib="year"></span> so far</span>
+      <span class="gh-delta" data-gh-contrib="delta" hidden></span>
+    </div>
+    <div class="gh-heatmap-scroll">
+      <div class="gh-heatmap" role="img" aria-label="GitHub contribution heatmap for the last 12 months"></div>
+    </div>
+    <div class="gh-legend">
+      <span>Less</span>
+      <span class="gh-cell"></span>
+      <span class="gh-cell" data-level="1"></span>
+      <span class="gh-cell" data-level="2"></span>
+      <span class="gh-cell" data-level="3"></span>
+      <span class="gh-cell" data-level="4"></span>
+      <span>More</span>
+    </div>
+  </div>
+
+  <div class="gh-panel">
   <div class="gh-layout">
     <div class="gh-stats">
       <div class="stat">
@@ -141,6 +162,7 @@ title: Home
     <ul class="gh-feed">
       <li class="gh-feed-skeleton">Loading recent activity…</li>
     </ul>
+  </div>
   </div>
 </section>
 
