@@ -163,3 +163,11 @@ No manual build step required — GitHub Pages runs Jekyll server-side.
 
 Always branch from `dev`, not `main`. PR flow: `feature/*` → `dev` → `main`.
 
+---
+
+## License
+
+Code (layouts, includes, CSS, JS, config) is licensed under [MIT](LICENSE).
+
+Blog posts, project write-ups, other written content, and images are licensed under [CC BY-NC-ND 4.0](CONTENT-LICENSE.md) — see that file for details.
+
