@@ -10,8 +10,7 @@ permalink: /resume/
     <p class="resume-meta">Data engineering and MLOps. Spark, Scala, and Python on GCP.</p>
     <div class="resume-actions">
       <a class="btn btn-primary" href="mailto:darracq.aurelien@gmail.com">Contact Me</a>
-      <a class="btn btn-ghost" href="{{ '/assets/docs/aurelien-darracq-cv-1.png' | relative_url }}" download>Download Page 1</a>
-      <a class="btn btn-ghost" href="{{ '/assets/docs/aurelien-darracq-cv-2.png' | relative_url }}" download>Download Page 2</a>
+      <a class="btn btn-ghost" href="{{ '/assets/docs/aurelien-darracq-cv.pdf' | relative_url }}" download>Download Resume (PDF)</a>
     </div>
   </header>
 
