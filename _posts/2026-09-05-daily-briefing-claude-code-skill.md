@@ -4,6 +4,9 @@ title: "The Best Input to My Daily Briefing Was Already on My Laptop"
 date: 2026-09-05
 summary: "Every Claude Code session writes a JSONL transcript to ~/.claude/projects/, and it turned out to be the most useful input to a daily briefing on my own work. It reads that alongside my git state, GitHub, my inbox and my Notion goals. A bash script gathers the facts, a Markdown file supplies the judgment."
 links:
+  - label: "See the project"
+    url: "/projects/claude-briefing/"
+    kind: primary
   - label: "View on LinkedIn"
     url: "https://www.linkedin.com/in/aurelien-darracq/"
     kind: linkedin

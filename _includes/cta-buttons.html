@@ -5,8 +5,21 @@
   <div class="project-cta">
     {%- if links -%}
       {%- for item in links -%}
+        {%- comment -%}
+        Skip entries with no URL. A post that has not been shared yet leaves
+        url: "" in its front matter, which used to render a dead button.
+        {%- endcomment -%}
+        {%- if item.url == nil or item.url == '' -%}{%- continue -%}{%- endif -%}
         {%- assign kind = item.kind | default: 'external' -%}
-        <a class="btn btn-{{ kind }}" href="{{ item.url }}" target="_blank" rel="noopener">
+        {%- comment -%}
+        relative_url passes absolute URLs through untouched and prepends the
+        baseurl to site-internal paths, so one filter serves both. Without it a
+        "/projects/..." link 404s in production, where baseurl is non-empty.
+        Internal links also stay in the same tab.
+        {%- endcomment -%}
+        {%- assign is_external = false -%}
+        {%- if item.url contains '://' -%}{%- assign is_external = true -%}{%- endif -%}
+        <a class="btn btn-{{ kind }}" href="{{ item.url | relative_url }}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
           {%- case kind -%}
             {%- when 'linkedin' -%}
               <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" style="margin-right:6px">
