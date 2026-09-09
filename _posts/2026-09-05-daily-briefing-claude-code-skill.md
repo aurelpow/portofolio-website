@@ -8,7 +8,7 @@ links:
     url: "/projects/claude-briefing/"
     kind: primary
   - label: "View on LinkedIn"
-    url: "https://www.linkedin.com/in/aurelien-darracq/"
+    url: "https://lnkd.in/p/eQQUXrMf"
     kind: linkedin
 tags: [Claude Code, Automation, Developer Tools, Productivity, AI]
 ---
