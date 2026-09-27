@@ -8,6 +8,13 @@
   <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
   <meta property="og:description" content="{{ page.summary | default: page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
   <meta property="og:type" content="website">
+  {% assign og_image = page.hero | default: page.image | default: page.thumb | default: site.default_image %}
+  <meta property="og:image" content="{{ og_image | relative_url | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | relative_url | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+  <meta name="twitter:description" content="{{ page.summary | default: page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <meta name="twitter:image" content="{{ og_image | relative_url | absolute_url }}">
   <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
   {% assign css = site.static_files | where: "path", "/assets/css/site.css" | first %}
   {% assign v = css.modified_time | default: site.time %}

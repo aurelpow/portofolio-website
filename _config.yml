@@ -4,6 +4,8 @@ description: "Real-time data engineering & MLOps — Spark, Scala, Python on GCP
 baseurl: "/portofolio-website"
 url:  "https://aurelpow.github.io"
 
+default_image: /assets/img/og-default.png
+
 # Google Analytics
 google_analytics: "G-DW6N0D5E6N"
 
