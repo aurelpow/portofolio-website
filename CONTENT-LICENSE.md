@@ -6,7 +6,7 @@ Written content and media are licensed separately, under **[Creative Commons Att
 
 - Blog posts (`_posts/`)
 - Project write-ups (`_projects/`)
-- Site pages (`about.md`, `index.md`, `resume.md`, etc.)
-- Images and other media (`assets/img/`, `assets/docs/`)
+- Site pages (`about.md`, `index.md`, etc.)
+- Images and other media (`assets/img/`)
 
 This means you're free to share this content in unmodified form with attribution, but not to adapt, remix, or use it commercially without permission. For permissions beyond this license, contact Aurélien Darracq.
