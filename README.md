@@ -28,13 +28,11 @@ Personal portfolio and blog built with [Jekyll](https://jekyllrb.com/) and hoste
 ├── assets/
 │   ├── css/site.css     # Main stylesheet
 │   ├── js/site.js       # Typewriter, scroll-reveal, animated stat counters
-│   ├── docs/            # Resume page images
 │   └── img/             # Images organised by section (blog, home, project)
 ├── index.md             # Home page
 ├── blog.md              # Blog listing page
 ├── project.md           # Projects listing page
 ├── about.md             # About page
-├── resume.md            # Resume page
 └── Gemfile              # Ruby dependencies
 ```
 
@@ -170,4 +168,3 @@ Always branch from `dev`, not `main`. PR flow: `feature/*` → `dev` → `main`.
 Code (layouts, includes, CSS, JS, config) is licensed under [MIT](LICENSE).
 
 Blog posts, project write-ups, other written content, and images are licensed under [CC BY-NC-ND 4.0](CONTENT-LICENSE.md) — see that file for details.
-

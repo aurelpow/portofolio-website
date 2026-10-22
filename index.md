@@ -35,7 +35,6 @@ title: Home
 
   <div class="hero-cta">
     <a class="btn btn-primary" href="mailto:darracq.aurelien@gmail.com">Contact Me</a>
-    <a class="btn btn-ghost" href="{{ '/resume/' | relative_url }}">See My Resume</a>
   </div>
 </section>
 
@@ -98,6 +97,7 @@ title: Home
       <div class="skills-row">
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">GCP</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" style="filter:invert(1)">AWS</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="">Terraform</span>
       </div>
     </div>
 
@@ -202,3 +202,4 @@ title: Home
     <a class="recent-link" href="{{ '/blog/' | relative_url }}">All Articles</a>
   </div>
 </section>
+
