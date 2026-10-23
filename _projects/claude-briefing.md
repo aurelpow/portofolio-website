@@ -3,6 +3,7 @@ layout: project
 title: "Claude Briefing: A Daily Briefing on Your Own Engineering Work"
 thumb: /assets/img/project/claude-briefing-banner.png
 date: 2026-09-05
+featured: true
 permalink: /projects/claude-briefing/
 repo: https://github.com/aurelpow/claude-briefing
 external_url: https://github.com/aurelpow/claude-briefing

@@ -3,6 +3,7 @@ layout: project
 title: NBA ML Pipeline — Predict Player Performance
 thumb: /assets/img/project/nba-ml-banner.png
 date: 2025-09-02
+featured: true
 permalink: /projects/nba-ml-pipeline/
 repo: https://github.com/aurelpow/nba-ml-pipeline
 external_url: https://github.com/aurelpow/nba-ml-pipeline

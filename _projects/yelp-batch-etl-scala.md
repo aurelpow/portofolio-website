@@ -1,7 +1,6 @@
 ---
 layout: project
 title: Yelp Batch ETL Pipeline — Business Analytics at Scale
-thumb: /assets/img/project/yelp-batch-banner.png
 date: 2025-11-26
 permalink: /projects/yelp-batch-etl-pipeline/
 repo: https://github.com/aurelpow/yelp-batch-pipeline
