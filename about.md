@@ -12,7 +12,7 @@ permalink: /about/
   <img src="{{ '/assets/img/about/what-i-do.svg' | relative_url }}" width="200" alt="Data engineering illustration">
   <div>
     <h2>What I do</h2>
-    <p>Hi, I'm Aurélien! I'm an ML engineer, and I've built my data and ML skills side by side rather than one after the other. That pairing is the point: a model is only as good as the data reaching it, so I work across both ends, the real-time pipelines that feed models and the systems that get those models into production and keep them honest there. Mostly Spark, Scala and Python on GCP. I like problems where data has to move fast, stay correct, and drive a decision while it still matters, especially in finance and fraud detection.</p>
+    <p>Hi, I'm Aurélien! I'm a Machine Learning Engineer with 5+ years in data roles. I build production ML systems end to end: feature pipelines, model training, deployment, monitoring, and the data platforms that make them reliable. My foundation in Spark, Scala, Python, and cloud data engineering helps me turn models into systems that are accurate, scalable, and maintainable. I especially enjoy problems where ML has to drive a decision while it still matters, including search, recommendations, finance, and fraud detection.</p>
   </div>
 </div>
 
@@ -20,7 +20,7 @@ permalink: /about/
   <img src="{{ '/assets/img/about/how-i-learn.svg' | relative_url }}" width="200" alt="Learning process illustration">
   <div>
     <h2>How I learn</h2>
-    <p>I'm a Google Cloud Professional Machine Learning Engineer, but the certificate is the smaller half. I write about what I build (Spark internals, streaming architectures, MLOps workflows, and the AI tooling I use day to day) mostly so the next problem is easier than the last one. Everything I write about is something I shipped and debugged myself, not something I read about.</p>
+    <p>I'm a Google Cloud Professional Machine Learning Engineer and AWS Certified AI Practitioner, but the certificates are the smaller half. I write about what I build (Spark internals, streaming architectures, MLOps workflows, and the AI tooling I use day to day) mostly so the next problem is easier than the last one. Everything I write about is something I shipped and debugged myself, not something I read about.</p>
   </div>
 </div>
 

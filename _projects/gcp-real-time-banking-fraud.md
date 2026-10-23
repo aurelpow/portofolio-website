@@ -1,8 +1,8 @@
 ---
 layout: project
 title: Real-Time Banking Fraud Detection — Serverless Streaming Pipeline
-thumb: /assets/img/project/gcp-fraud-detection-banner.png
 date: 2026-02-08
+featured: true
 permalink: /projects/realtime-fraud-detection-pipeline/
 repo: https://github.com/aurelpow/gcp-banking-fraud-real-time
 external_url: https://github.com/aurelpow/gcp-banking-fraud-real-time

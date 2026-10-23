@@ -6,9 +6,9 @@ title: Home
 <section class="hero reveal">
   <img class="avatar" src="{{ '/assets/img/home/avatar.png' | relative_url }}" width="104" alt="Profile Picture">
   <h1>Aurélien Darracq</h1>
-  <span class="hero-role" data-roles='["Data Engineer","ML Engineer","Google Cloud Professional ML Engineer"]'>Data Engineer</span>
+  <span class="hero-role" data-roles='["ML Engineer","Machine Learning Engineer","Google Cloud Professional ML Engineer"]'>ML Engineer</span>
 
-  <p class="hero-bio">I'm a data engineer focused on building real-time data pipelines and getting ML models into production, with Spark, Scala, and Python on GCP.</p>
+  <p class="hero-bio">I'm a machine learning engineer who builds reliable ML systems end to end: from feature data and training pipelines to production inference and monitoring. My data engineering background means models get the quality, scale, and reliability they need to create real impact.</p>
 
   <div class="hero-stats">
     <div class="stat">
@@ -72,16 +72,7 @@ title: Home
     </div>
 
     <div class="skills-group">
-      <p class="skills-label">Streaming &amp; Data Engineering</p>
-      <div class="skills-row">
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg" alt="">Spark</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" alt="" style="filter:invert(1)">Kafka</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" alt="">Airflow</span>
-      </div>
-    </div>
-
-    <div class="skills-group">
-      <p class="skills-label">MLOps / ML</p>
+      <p class="skills-label">Machine Learning &amp; MLOps</p>
       <div class="skills-row">
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">Vertex AI</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="">TensorFlow</span>
@@ -89,6 +80,15 @@ title: Home
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="">Scikit-Learn</span>
         <span class="skill-pill">📈 XGBoost</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="">Docker</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-label">Streaming &amp; Data Engineering</p>
+      <div class="skills-row">
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg" alt="">Spark</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" alt="" style="filter:invert(1)">Kafka</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" alt="">Airflow</span>
       </div>
     </div>
 
@@ -167,10 +167,10 @@ title: Home
 </section>
 
 <section class="recent-work reveal">
-  <h2>Recent Work</h2>
+  <h2>Featured ML &amp; AI Work</h2>
 
-  {% assign all_items = site.posts | concat: site.projects %}
-  {% assign sorted = all_items | sort: "date" | reverse %}
+  {% assign featured_projects = site.projects | where: "featured", true %}
+  {% assign sorted = featured_projects | sort: "date" | reverse %}
 
   <div class="work-grid">
   {% for item in sorted limit: 6 %}

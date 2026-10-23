@@ -3,7 +3,8 @@ layout: default
 ---
 
 {%- assign hero = page.hero | default: page.image | default: page.thumb -%}
-{%- assign has_hero = hero != nil and hero != '' -%}
+{%- assign has_hero = false -%}
+{%- if hero -%}{%- assign has_hero = true -%}{%- endif -%}
 
 {% if has_hero %}
   <section class="post-hero project-hero--banner" style="--hero: url('{{ hero | relative_url }}')"></section>
