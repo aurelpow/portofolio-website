@@ -106,7 +106,7 @@ title: Home
       <div class="skills-row">
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/pandas.svg" alt="" style="filter:invert(1)">Pandas</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="">NumPy</span>
-        <span class="skill-pill">📊 Power BI</span>
+        <span class="skill-pill"><img src="{{ '/assets/img/home/powerbi.png' | relative_url }}" alt="">Power BI</span>
       </div>
     </div>
 
