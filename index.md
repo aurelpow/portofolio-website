@@ -72,14 +72,22 @@ title: Home
     </div>
 
     <div class="skills-group">
-      <p class="skills-label">Machine Learning &amp; MLOps</p>
+      <p class="skills-label">Machine Learning</p>
       <div class="skills-row">
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">Vertex AI</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="">TensorFlow</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="">PyTorch</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="">Scikit-Learn</span>
         <span class="skill-pill">📈 XGBoost</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-label">MLOps &amp; CI/CD</p>
+      <div class="skills-row">
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">Vertex AI</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="">Docker</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="">Git</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="" style="filter:invert(1)">GitHub</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="">GitLab</span>
       </div>
     </div>
 
@@ -93,6 +101,15 @@ title: Home
     </div>
 
     <div class="skills-group">
+      <p class="skills-label">Data Analysis</p>
+      <div class="skills-row">
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/pandas.svg" alt="" style="filter:invert(1)">Pandas</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="">NumPy</span>
+        <span class="skill-pill">📊 Power BI</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
       <p class="skills-label">Cloud</p>
       <div class="skills-row">
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">GCP</span>
@@ -101,20 +118,10 @@ title: Home
       </div>
     </div>
 
-    <div class="skills-group">
-      <p class="skills-label">Tools</p>
-      <div class="skills-row">
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="">Git</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="" style="filter:invert(1)">GitHub</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="">GitLab</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="">Jira</span>
-      </div>
-    </div>
-
   </div>
 
   </div>
-  <p class="skills-secondary">also: Pandas · NumPy · Power BI</p>
+  <p class="skills-secondary">also: Jira</p>
 </section>
 
 <section class="github-activity" data-username="aurelpow">
