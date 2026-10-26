@@ -26,7 +26,7 @@ title: Home
       <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn Logo"> LinkedIn
     </a>
     <a href="https://github.com/aurelpow" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo"> GitHub
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub Logo" style="filter:invert(1)"> GitHub
     </a>
     <a href="https://x.com/aureldata" target="_blank">
       <img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?size=338&ext=jpg" alt="Twitter Logo"> Twitter
@@ -72,23 +72,47 @@ title: Home
     </div>
 
     <div class="skills-group">
-      <p class="skills-label">Machine Learning &amp; MLOps</p>
+      <p class="skills-label">Machine Learning</p>
       <div class="skills-row">
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">Vertex AI</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="">TensorFlow</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="">PyTorch</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="">Scikit-Learn</span>
         <span class="skill-pill">📈 XGBoost</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="">Docker</span>
+        <span class="skill-pill">⚡ LightGBM</span>
       </div>
     </div>
 
     <div class="skills-group">
-      <p class="skills-label">Streaming &amp; Data Engineering</p>
+      <p class="skills-label">MLOps &amp; CI/CD</p>
+      <div class="skills-row">
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">Vertex AI</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/npm/aws-icons@3.2.0/icons/architecture-service/AmazonSageMaker.svg" alt="">SageMaker</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="">Docker</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="">Git</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" style="filter:invert(1)">GitHub</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" alt="">GitHub Actions</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="">GitLab CI</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="">Terraform</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-label">Data Engineering</p>
       <div class="skills-row">
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg" alt="">Spark</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" alt="" style="filter:invert(1)">Kafka</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" alt="">Airflow</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlebigquery.svg" alt="" style="filter:invert(1)">BigQuery</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">Dataproc</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/npm/aws-icons@3.2.0/icons/architecture-service/AmazonAthena.svg" alt="">Athena</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-label">Other Data Tools</p>
+      <div class="skills-row">
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/pandas.svg" alt="" style="filter:invert(1)">Pandas</span>
+        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="">NumPy</span>
+        <span class="skill-pill"><img src="{{ '/assets/img/home/powerbi.png' | relative_url }}" alt="">Power BI</span>
       </div>
     </div>
 
@@ -97,24 +121,13 @@ title: Home
       <div class="skills-row">
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="">GCP</span>
         <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" style="filter:invert(1)">AWS</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="">Terraform</span>
-      </div>
-    </div>
-
-    <div class="skills-group">
-      <p class="skills-label">Tools</p>
-      <div class="skills-row">
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="">Git</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" alt="" style="filter:invert(1)">GitHub</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="">GitLab</span>
-        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="">Jira</span>
       </div>
     </div>
 
   </div>
 
   </div>
-  <p class="skills-secondary">also: Pandas · NumPy · Power BI</p>
+  <p class="skills-secondary">also: Jira</p>
 </section>
 
 <section class="github-activity" data-username="aurelpow">
